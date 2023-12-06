@@ -6,6 +6,7 @@ import App from "./App";
 import Series from "./pages/Series";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
+import Connexion from "./pages/Connexion";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/inscription",
     element: <Inscription/>,
+  },
+  {
+    path: "/connexion",
+    element: <Connexion/>,
   },
 ]);
 

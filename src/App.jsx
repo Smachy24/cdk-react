@@ -1,14 +1,14 @@
 import "./styles/App.css";
 // import Menus from "../components/Menus";
+import series1 from "./assets/series1.jpg"
+import series2 from "./assets/series2.jpg"
+import series3 from "./assets/series3.jpg"
+
 
 import React from 'react';
 
 function App() {
   return (
-    // <div className="w-full">
-    //   <Menus />
-    //   <h1 className="bg-red-500">Vite + React</h1>
-    // </div>
     <div className="body font-sans m-0 p-0 bg-neutral-950 text-white">
       
     <header className="flex justify-between items-center bg-stone-950 p-4 md:p-6">
@@ -24,13 +24,13 @@ function App() {
 
     <section className="cards flex flex-wrap justify-around p-4 md:p-10">
       <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
-        <img src="series1.jpg" alt="Series 1" className="w-full h-auto rounded-md" />
+        <img src={series1} alt="Series 1" className="w-full h-auto rounded-md" />
       </div>
       <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
-        <img src="series2.jpg" alt="Series 2" className="w-full h-auto rounded-md" />
+        <img src={series2} alt="Series 2" className="w-full h-auto rounded-md" />
       </div>
       <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
-        <img src="series3.jpg" alt="Series 3" className="w-full h-auto rounded-md" />
+        <img src={series3} alt="Series 3" className="w-full h-auto rounded-md" />
       </div>
     </section>
   </div>
