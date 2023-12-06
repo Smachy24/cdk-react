@@ -4,8 +4,8 @@ interface User {
   email: string;
   password: string;
   dateOfBirth : Date;
-  language: string;
-  notificationFrequency: number;
+  language?: string;
+  notificationFrequency?: number;
   createdAt : Date
 }
 
