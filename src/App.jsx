@@ -1,0 +1,43 @@
+import "./styles/App.css";
+// import Menus from "../components/Menus";
+
+import React from 'react';
+
+function App() {
+  return (
+    // <div className="w-full">
+    //   <Menus />
+    //   <h1 className="bg-red-500">Vite + React</h1>
+    // </div>
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white">
+      
+    <header className="flex justify-between items-center bg-stone-950 p-4 md:p-6">
+      <div className="logo text-2xl font-bold text-red-800">Netflix</div>
+      
+    </header>
+
+    <section className="bienvenue text-center py-16 px-4 md:px-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('bienvenue-bg.jpg')" }}>
+      <h1 className="text-3xl md:text-5xl mb-8">Bienvenue sur Netflix</h1>
+      <p className="text-lg md:text-xl mb-12">Films, émissions de télévision et bien plus encore en illimité. Regardez n'importe où. Annulez à tout moment.</p>
+      <button className="bg-red-800 text-white px-8 py-4 text-lg">Connexion</button>
+    </section>
+
+    <section className="cards flex flex-wrap justify-around p-4 md:p-10">
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src="series1.jpg" alt="Series 1" className="w-full h-auto rounded-md" />
+      </div>
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src="series2.jpg" alt="Series 2" className="w-full h-auto rounded-md" />
+      </div>
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src="series3.jpg" alt="Series 3" className="w-full h-auto rounded-md" />
+      </div>
+    </section>
+  </div>
+  );
+}
+
+export default App;
+
+
+
