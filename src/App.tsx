@@ -1,76 +1,43 @@
-import React, { useState } from 'react';
-import './App.css';
-import { db, auth } from './utils/db';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { FirebaseError } from 'firebase/app';
-import { addDoc, collection } from "firebase/firestore"; 
+import "./styles/App.css";
+// import Menus from "../components/Menus";
+import series1 from "./assets/series1.jpg"
+import series2 from "./assets/series2.jpg"
+import series3 from "./assets/series3.jpg"
 
-import User from './models/user.model';
-import bcrypt from 'bcryptjs';
+
+import React from 'react';
 
 function App() {
-
-  const initialUserState: User = {
-    firstName: "Prenom",
-    lastName: "Nom",
-    email: "bfa@gmail.com",
-    password: "password",
-    dateOfBirth: new Date(),
-    createdAt: new Date()
-  }
-
-  const [user, setUser] = useState<User>(initialUserState);
-  const [message, setMessage] = useState('');
-
-
-  const signUp = async () => {
-    try {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
-
-      await createUserWithEmailAndPassword(auth, user.email, user.password);
-      await addDoc(collection(db, "Users"), {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        password :hashedPassword,
-        dateOfBirth: user.dateOfBirth,
-        createdAt: new Date(),
-      });
-      setMessage("User registered successfully!");
-    } catch (err: any) {
-      if (err instanceof FirebaseError) {
-        handleFirebaseError(err);
-      }
-      else{
-        setMessage(`Une erreur est survenue ${err}`);
-      }
-    } 
-  };
-
-  const handleFirebaseError = (err: FirebaseError) => {
-    if(err.code === "auth/invalid-email"){
-      setMessage("Adresse email invalide");
-    }
-
-    else if (err.code === "auth/email-already-in-use") {
-      setMessage("Cette adresse email existe déjà, veuillez en renseigner une autre");
-    } else if (err.code === "auth/weak-password") {
-      setMessage("Le mot de passe est trop court, il doit comporter au mois 6 caractères");
-    } else {
-      setMessage(`Firebase Error: ${err.message}`);
-      console.error(`Firebase Error: ${err.message}`);
-    }
-  };
-
   return (
-    <div className="App">
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white">
+      
+    <header className="flex justify-between items-center bg-stone-950 p-4 md:p-6">
+      <div className="logo text-2xl font-bold text-red-800">Netflix</div>
+      
+    </header>
 
-      <button onClick={signUp}>
-        Sign Up
-      </button>
-      <p>{message}</p>
-    </div>
+    <section className="bienvenue text-center py-16 px-4 md:px-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('bienvenue-bg.jpg')" }}>
+      <h1 className="text-3xl md:text-5xl mb-8">Bienvenue sur Netflix</h1>
+      <p className="text-lg md:text-xl mb-12">Films, émissions de télévision et bien plus encore en illimité. Regardez n'importe où. Annulez à tout moment.</p>
+      <button className="bg-red-800 text-white px-8 py-4 text-lg">Connexion</button>
+    </section>
+
+    <section className="cards flex flex-wrap justify-around p-4 md:p-10">
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src={series1} alt="Series 1" className="w-full h-auto rounded-md" />
+      </div>
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src={series2} alt="Series 2" className="w-full h-auto rounded-md" />
+      </div>
+      <div className="card mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105">
+        <img src={series3} alt="Series 3" className="w-full h-auto rounded-md" />
+      </div>
+    </section>
+  </div>
   );
 }
 
 export default App;
+
+
+
