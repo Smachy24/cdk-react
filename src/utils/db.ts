@@ -14,17 +14,7 @@ const firebaseConfig = {
   measurementId: process.env.FIRESTORE_MEASUREMENT_ID,
 };
 
-let app;
-let db: Firestore;
-
-try {
-  // Initialize Firebase
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-  console.log('Firebase initialized successfully');
-} catch (error) {
-  console.error('Error initializing Firebase:', error);
-  throw new Error('Failed to initialize Firebase');
-}
+const app = initializeApp(firebaseConfig);
+const db: Firestore= getFirestore(app);
 
 export { db };

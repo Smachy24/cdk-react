@@ -4,7 +4,7 @@ import { db } from './utils/db';
 
 function App() {
   if(db){
-    console.log("yes")
+    console.log("Connection success")
   }
   return (
     <div className="App">
