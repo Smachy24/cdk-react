@@ -31,7 +31,7 @@ function Inscription() {
     if (alert) {
       const timeoutId = setTimeout(() => {
         setAlert(false);
-      }, 4000);
+      }, 5000);
 
       return () => clearTimeout(timeoutId);
     }
@@ -42,9 +42,26 @@ function Inscription() {
     setUser((prevUser) => ({...prevUser,[name]: value,}));
   };
 
+  const isFormValid = () => {
+    return (
+      user.firstName.trim() !== "" &&
+      user.lastName.trim() !== "" &&
+      user.email.trim() !== "" &&
+      user.password.trim() !== "" &&
+      user.dateOfBirth !== null
+    );
+  };
+
 
   const signUp = async () => {
     try {
+
+      if (!isFormValid()) {
+        setMessage("Veuillez remplir tous les champs du formulaire");
+        setAlert(false);
+        return;
+      }
+
       const hashedPassword = await bcrypt.hash(user.password, 10);
       await createUserWithEmailAndPassword(auth, user.email, user.password);
       await addDoc(collection(db, "Users"), {
@@ -124,7 +141,7 @@ function Inscription() {
             <label htmlFor="password" className="text-sm mb-1">Mot de passe :</label>
             <input type="password" id="password" name="password" required className="p-2 mb-4 border text-black border-gray-700 rounded-md" value={user.password} onChange={handleInputChange}/>
 
-            <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
+            <button type="submit" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
           </form>
           <p className="signin-link mt-4 text-sm">Avez-vous déjà un compte? Connecter vous ici </p>
         </div>
