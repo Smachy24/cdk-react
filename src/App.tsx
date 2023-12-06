@@ -6,14 +6,14 @@ import { FirebaseError } from 'firebase/app';
 import { addDoc, collection } from "firebase/firestore"; 
 
 import User from './models/user.model';
-
+import bcrypt from 'bcryptjs';
 
 function App() {
 
   const initialUserState: User = {
     firstName: "Prenom",
     lastName: "Nom",
-    email: "b@gmail.com",
+    email: "bfa@gmail.com",
     password: "password",
     dateOfBirth: new Date(),
     createdAt: new Date()
@@ -22,13 +22,17 @@ function App() {
   const [user, setUser] = useState<User>(initialUserState);
   const [message, setMessage] = useState('');
 
+
   const signUp = async () => {
     try {
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+
       await createUserWithEmailAndPassword(auth, user.email, user.password);
       await addDoc(collection(db, "Users"), {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        password :hashedPassword,
         dateOfBirth: user.dateOfBirth,
         createdAt: new Date(),
       });
