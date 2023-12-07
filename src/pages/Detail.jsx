@@ -6,9 +6,14 @@ function Detail() {
   return (
     <div className="bg-black text-white min-h-screen">
       <Menu/>
+     
+      
+    <button className=" bg-white mt-2 text-black px-4 py-2 rounded-md">Suivre</button>
 
       <section className="flex justify-center items-center h-full mt-20">
-        <div className="bg-red-950 p-6 rounded-lg w-4/6">
+      
+        
+        <div className="relative bg-red-950 p-6 rounded-lg w-4/6">
           <img src={series1} alt="Series 1" className="w-full h-auto rounded-lg mb-4" />
           <h2 className="text-xl font-bold mb-2">Nom de la série</h2>
           <p>Année: 2023</p>
@@ -35,6 +40,7 @@ function Detail() {
               <li>Saison 3</li>
             </ul>
           </div>
+
         </div>
       </section>
     </div>
