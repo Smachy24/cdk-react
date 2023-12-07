@@ -3,21 +3,17 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import Series from "./pages/Series";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import AffichageSeries from "./pages/affichageSeries";
+import Favoris from "./pages/Favoris";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/series",
-    element: <Series />,
   },
   {
     path: "/profile",
@@ -30,11 +26,14 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion/>,
-  }
-  ,
+  },
   {
     path: "/affichageSeries",
     element: <AffichageSeries/>,
+  },
+  {
+    path: "/favoris",
+    element: <Favoris/>,
   }
 ]);
 

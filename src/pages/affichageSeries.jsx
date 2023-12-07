@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import '../styles/App.css';
 import series1 from "../assets/series1.jpg"
 import series3 from "../assets/series3.jpg";
-import SearchBar from '../components/SearchBar'; 
+//import SearchBar from '../components/SearchBar'; 
+import Menu from '../components/Menu';
+import SeriesSections from '../components/SeriesSections';
 
 function AffichageSeries() {
   const [searchResults, setSearchResults] = useState([]); // État pour stocker les résultats de la recherche
@@ -14,6 +16,7 @@ function AffichageSeries() {
     { id: 4, title: 'Série 2', image: series3 },
     { id: 5, title: 'Série 2', image: series1 },
   ];
+  
 
   const chunkedSeries = (arr, size) => {
     return arr.reduce((chunks, el, i) => (i % size
@@ -33,18 +36,7 @@ function AffichageSeries() {
 
   return (
     <div className="font-sans m-0 p-0 bg-black text-white">
-      <header className="flex justify-between items-center bg-neutral-950 text-white p-5">
-        <div className="logo text-2xl font-bold text-red-800">Netflix</div>
-        <nav>
-          <ul className="flex">
-          <SearchBar onSearch={handleSearch} /> {/* barre de recherche */}
-            <li className="mr-5 cursor-pointer text-xl">Accueil</li>
-            <li className="mr-5 cursor-pointer text-xl">Séries</li>
-            <li className="mr-5 cursor-pointer text-xl">Profil</li>
-            <li className="cursor-pointer text-xl">Déconnexion</li>
-          </ul>
-        </nav>
-      </header>
+     <Menu onSearch={handleSearch} />
 
       
 
@@ -69,57 +61,11 @@ function AffichageSeries() {
         </section>
       )}
 
-      <h3>Horreur</h3>
-      {seriesRows.map((row, rowIndex) => (
-        <section key={rowIndex} className="choices flex flex-wrap">
-          {row.map((series) => (
-            <div key={series.id} className="choice flex-1 max-w-xs m-1">
-              <img src={series.image} alt={series.title} className="w-full h-auto border rounded-t-md" />
-              <h3 className="bg-black text-white text-center p-2 rounded-b-md">{series.title}</h3>
-            </div>
-          ))}
-        </section>
-      ))}
-
-
-<h3>Annimé</h3>
-      {seriesRows.map((row, rowIndex) => (
-        <section key={rowIndex} className="choices flex flex-wrap">
-          {row.map((series) => (
-            <div key={series.id} className="choice flex-1 max-w-xs m-1">
-              <img src={series.image} alt={series.title} className="w-full h-auto border rounded-t-md" />
-              <h3 className="bg-black text-white text-center p-2 rounded-b-md">{series.title}</h3>
-            </div>
-          ))}
-        </section>
-      ))}
-
-
-
-<h3>Commedie</h3>
-      {seriesRows.map((row, rowIndex) => (
-        <section key={rowIndex} className="choices flex flex-wrap">
-          {row.map((series) => (
-            <div key={series.id} className="choice flex-1 max-w-xs m-1">
-              <img src={series.image} alt={series.title} className="w-full h-auto border rounded-t-md" />
-              <h3 className="bg-black text-white text-center p-2 rounded-b-md">{series.title}</h3>
-            </div>
-          ))}
-        </section>
-      ))}
-
-
-<h3>Thriller</h3>
-      {seriesRows.map((row, rowIndex) => (
-        <section key={rowIndex} className="choices flex flex-wrap">
-          {row.map((series) => (
-            <div key={series.id} className="choice flex-1 max-w-xs m-1">
-              <img src={series.image} alt={series.title} className="w-full h-auto border rounded-t-md" />
-              <h3 className="bg-black text-white text-center p-2 rounded-b-md">{series.title}</h3>
-            </div>
-          ))}
-        </section>
-      ))}
+<SeriesSections title="Horreur" seriesRows={seriesRows} />
+      <SeriesSections title="Anime" seriesRows={seriesRows} />
+      <SeriesSections title="Comédie" seriesRows={seriesRows} />
+      <SeriesSections title="Thriller" seriesRows={seriesRows} />
+    
 
     </div>
   );
