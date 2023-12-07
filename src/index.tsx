@@ -8,6 +8,8 @@ import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import AffichageSeries from "./pages/affichageSeries";
 import Favoris from "./pages/Favoris";
+import Calendrier from "./pages/Calendrier";
+import Detail from "./pages/Detail";
 
 
 const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
   {
     path: "/favoris",
     element: <Favoris/>,
+  },
+  {
+    path: "/calendrier",
+    element: <Calendrier/>,
+  },
+  {
+    path: "/detail",
+    element: <Detail/>,
   }
 ]);
 
