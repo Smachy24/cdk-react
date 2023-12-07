@@ -17,7 +17,8 @@ function Inscription() {
     email: "",
     password: "",
     dateOfBirth: new Date(),
-    createdAt: new Date()
+    createdAt: new Date(),
+    followedShows: []
   }
 
   const [user, setUser] = useState<User>(initialUserState);
@@ -66,10 +67,13 @@ function Inscription() {
         password :hashedPassword,
         dateOfBirth: user.dateOfBirth,
         createdAt: user.createdAt,
+        followedShows: user.followedShows
       });
       setMessage("User registered successfully!");
+      setAlert(true);
       navigate('/');
     } catch (err: any) {
+
       if (err instanceof FirebaseError) {
         handleFirebaseError(err);
       }
@@ -136,7 +140,7 @@ function Inscription() {
             <label htmlFor="password" className="text-sm mb-1">Mot de passe :</label>
             <input type="password" id="password" name="password" required className="p-2 mb-4 border text-black border-gray-700 rounded-md" value={user.password} onChange={handleInputChange}/>
 
-            <button type="submit" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
+            <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
           </form>
           <p className="signin-link mt-4 text-sm">Avez-vous déjà un compte? Connecter vous ici </p>
         </div>
