@@ -9,6 +9,7 @@ import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import ShowsFollowed from "./pages/ShowsFollowed";
 import TestFollow from "./pages/TestFollow";
+import AffichageSeries from "./pages/affichageSeries";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
   {
     path: "/test-follow",
     element: <TestFollow />,
+  }
+  ,
+  {
+    path: "/affichageSeries",
+    element: <AffichageSeries/>,
   }
 ]);
 
