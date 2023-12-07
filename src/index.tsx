@@ -7,6 +7,8 @@ import Series from "./pages/Series";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
+import ShowsFollowed from "./pages/ShowsFollowed";
+import TestFollow from "./pages/TestFollow";
 
 
 const router = createBrowserRouter([
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
     path: "/connexion",
     element: <Connexion/>,
   },
+  {
+    path: "/shows-followed",
+    element: <ShowsFollowed />,
+  },
+  {
+    path: "/test-follow",
+    element: <TestFollow />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(

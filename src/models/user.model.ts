@@ -1,3 +1,5 @@
+import Show from "./show.model";
+
 interface User {
   firstName: string;
   lastName: string;
@@ -6,7 +8,8 @@ interface User {
   dateOfBirth : Date;
   language?: string;
   notificationFrequency?: number;
-  createdAt : Date
+  createdAt : Date;
+  followedShows: Show[];
 }
 
 export default User;
