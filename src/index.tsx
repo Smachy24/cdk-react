@@ -12,6 +12,7 @@ import Calendrier from "./pages/Calendrier";
 import Detail from "./pages/Detail";
 import SuiviSerie from "./pages/suiviSerie";
 import AvisPage from "./pages/AvisPage";
+import VoirSerie from "./pages/VoirSerie";
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/avisPage",
     element: <AvisPage/>,
+  },
+  {
+    path: "/voirSerie",
+    element: <VoirSerie/>,
   },
 ]);
 
