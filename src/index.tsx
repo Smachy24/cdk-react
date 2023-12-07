@@ -11,6 +11,7 @@ import Favoris from "./pages/Favoris";
 import Calendrier from "./pages/Calendrier";
 import Detail from "./pages/Detail";
 import SuiviSerie from "./pages/suiviSerie";
+import AvisPage from "./pages/AvisPage";
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
   {
     path: "/suiviSerie",
     element: <SuiviSerie/>,
-  }
+  },
+  {
+    path: "/avisPage",
+    element: <AvisPage/>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(
