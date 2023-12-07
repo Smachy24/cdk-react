@@ -9,9 +9,9 @@ import React from 'react';
 
 function App() {
   return (
-    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white">
+    <div className="body font-sans m-0 p-0 bg-black text-white">
       
-    <header className="flex justify-between items-center bg-stone-950 p-4 md:p-6">
+    <header className="flex justify-between items-center bg-neutral-950 p-4 md:p-6">
       <div className="logo text-2xl font-bold text-red-800">Netflix</div>
       
     </header>

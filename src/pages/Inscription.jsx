@@ -3,7 +3,9 @@ import '../styles/App.css';
 
 function Inscription() {
   return (
-    <div className="body font-sans m-0 p-0 bg-gray-900 text-white flex items-center justify-center h-screen">
+    
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white flex items-center justify-center h-screen">
+
       <div className="container w-full max-w-md text-center">
         <div className="signup-box bg-opacity-80 bg-black p-10 rounded-lg">
           <div className="logo w-full max-w-2xl mb-4 text-4xl font-bold text-red-500 mx-auto">Netflix</div>
