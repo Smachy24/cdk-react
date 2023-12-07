@@ -1,13 +1,18 @@
 import React from 'react';
 import '../styles/App.css';
+import Menu from '../components/Menu';
 
 function Inscription() {
   return (
     
-    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white flex items-center justify-center h-screen">
-      
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white  h-screen">
 
-      <div className="container w-full max-w-md text-center">
+<div>
+    <Menu/>
+   </div>
+      
+<div className='flex justify-center mt-12'>
+      <div className="container w-full max-w-md text-center flex items-center justify-center">
         <div className="signup-box bg-opacity-80 bg-black p-10 rounded-lg">
           <div className="logo w-full max-w-2xl mb-4 text-4xl font-bold text-red-500 mx-auto">Netflix</div>
           <form className="flex flex-col">
@@ -32,6 +37,8 @@ function Inscription() {
           <p className="signin-link mt-4 text-sm">Avez-vous déjà un compte? Connecter vous ici </p>
         </div>
       </div>
+    </div>
+
     </div>
   );
 }
