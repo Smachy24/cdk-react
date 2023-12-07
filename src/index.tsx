@@ -10,6 +10,7 @@ import AffichageSeries from "./pages/affichageSeries";
 import Favoris from "./pages/Favoris";
 import Calendrier from "./pages/Calendrier";
 import Detail from "./pages/Detail";
+import SuiviSerie from "./pages/suiviSerie";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/detail",
     element: <Detail/>,
+  },
+  {
+    path: "/suiviSerie",
+    element: <SuiviSerie/>,
   }
 ]);
 
