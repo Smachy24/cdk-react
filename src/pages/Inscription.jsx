@@ -5,6 +5,7 @@ function Inscription() {
   return (
     
     <div className="body font-sans m-0 p-0 bg-neutral-950 text-white flex items-center justify-center h-screen">
+      
 
       <div className="container w-full max-w-md text-center">
         <div className="signup-box bg-opacity-80 bg-black p-10 rounded-lg">

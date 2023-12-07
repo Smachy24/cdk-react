@@ -7,6 +7,7 @@ import Series from "./pages/Series";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
+import AffichageSeries from "./pages/affichageSeries";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion/>,
+  }
+  ,
+  {
+    path: "/affichageSeries",
+    element: <AffichageSeries/>,
   }
 ]);
 
