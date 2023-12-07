@@ -43,12 +43,7 @@ function Inscription() {
   };
 
   const isFormValid = () => {
-    return (
-      user.firstName.trim() !== "" &&
-      user.lastName.trim() !== "" &&
-      user.email.trim() !== "" &&
-      user.password.trim() !== "" &&
-      user.dateOfBirth !== null
+    return (user.firstName.trim() !== "" &&user.lastName.trim() !== "" && user.email.trim() !== "" && user.password.trim() !== "" && user.dateOfBirth !== null
     );
   };
 
