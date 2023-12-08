@@ -17,6 +17,8 @@ import AvisPage from "./pages/AvisPage";
 import VoirSerie from "./pages/VoirSerie";
 import Favoris from "./pages/Favoris";
 import Logout from "./pages/Logout";
+import ContainerNote from "./components/ContainerNote";
+import AddNote from "./components/AddNote";
 
 
 const router = createBrowserRouter([
@@ -76,6 +78,14 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout/>,
+  },
+  {
+    path: "/notes",
+    element: <ContainerNote showId={94722}/>,
+  },
+  {
+    path: "/add-note",
+    element: <AddNote showId={94722} userId="4b8HbuKwU9ak1CiNcKAh"/>,
   }
 ]);
 
