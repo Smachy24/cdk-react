@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 
 function ContainerNote(props: { showId: number }) {
   const [average, setAverage] = useState<number>();
-
+  
   useEffect(() => {
     async function fetchData() {
       try {
-        const notes = await getNotes(props.showId);
+        const notes = await getNotes(props.showId);        
         const sum = notes.reduce((acc, num) => acc + num, 0);
         const average = sum / notes.length;
         setAverage(average);

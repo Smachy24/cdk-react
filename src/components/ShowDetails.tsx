@@ -8,6 +8,7 @@ import './showDetails.css'
 import SeasonCard from './SeasonCard'
 import { Link } from 'react-router-dom';
 import CompanieCard from './CompanieCard';
+import ContainerNote from './ContainerNote';
 
 
 function ShowDetails() {
@@ -49,6 +50,11 @@ function ShowDetails() {
                 <div className='show-details-companies'>
                   {currentShow.production_companies.map((companie)=> <CompanieCard id={companie.id} name={companie.name} logo_path={companie.logo_path} origin_country={companie.origin_country}/>)}
                 </div>
+
+                <div className="average">
+                <ContainerNote showId={currentShow.id}/>
+                </div>
+
               </div>
 
 
