@@ -4,6 +4,7 @@ import { auth } from '../utils/db';
 import { FirebaseError } from 'firebase/app';
 import { setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from "firebase/auth";
 import { useNavigate } from 'react-router';
+import Menu from '../components/Menu';
 
 
 
@@ -67,7 +68,8 @@ function Connexion() {
   }
 
   return (
-    <div className="bg-gray-900 p-4">
+    <div className="bg-neutral-950 p-4">
+      <Menu />
 
       {alert && (
         <div className="fixed top-0 right-0 p-4 m-4 rounded text-red-800 bg-red-200 w-400">
@@ -76,7 +78,7 @@ function Connexion() {
         </div>
       )}
 
-    <div className="body font-sans m-0 p-0 bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white flex items-center justify-center h-screen">
       <div className="container w-full max-w-md text-center">
         <div className="login-box bg-opacity-80 bg-black p-10 rounded-lg">
           <div className="logo w-full max-w-2xl mb-4 text-4xl font-bold text-red-500 mx-auto">Netflix</div>
@@ -89,7 +91,7 @@ function Connexion() {
 
             <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={login}>Se connecter</button>
           </form>
-          <p className="signup-link mt-4 text-sm">Nouveau sur Netflix ? S'inscrire maintenant.</p>
+          <p className="signup-link mt-4 text-sm cursor-pointer">Nouveau sur Netflix ? S'inscrire maintenant.</p>
         </div>
       </div>
     </div>

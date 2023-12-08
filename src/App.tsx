@@ -3,20 +3,14 @@ import "./styles/App.css";
 import series1 from "./assets/series1.jpg"
 import series2 from "./assets/series2.jpg"
 import series3 from "./assets/series3.jpg"
-
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
-import React from 'react';
+// import React from 'react';
 import Header from './components/Header';
  import WelcomeSection from './components/WelcomeSection';
  import SeriesCard from './components/SeriesCard';
 
 
 function App() {
-  const auth = getAuth()
-  let currentUser = auth.currentUser
-  onAuthStateChanged(auth, (user) => {
-    currentUser = user
-  })
 
   return (
     <div className="body font-sans m-0 p-0 bg-black text-white">

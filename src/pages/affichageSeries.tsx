@@ -18,8 +18,8 @@ function AffichageSeries() {
   ];
   
 
-  const chunkedSeries = (arr, size) => {
-    return arr.reduce((chunks, el, i) => (i % size
+  const chunkedSeries = (arr:any, size:any) => {
+    return arr.reduce((chunks:any, el:any, i:any) => (i % size
       ? chunks[chunks.length - 1].push(el)
       : chunks.push([el])) && chunks, []);
   };
@@ -27,8 +27,8 @@ function AffichageSeries() {
   const seriesRows = chunkedSeries(seriesData, 5);
 
   // Fonction de recherche pour filtrer les résultats en fonction du terme de recherche
-  const handleSearch = (searchTerm) => {
-    const results = seriesData.filter(series =>
+  const handleSearch = (searchTerm:any) => {
+    const results:any = seriesData.filter(series =>
       series.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(results);
@@ -36,7 +36,8 @@ function AffichageSeries() {
 
   return (
     <div className="font-sans m-0 p-0 bg-black text-white">
-     <Menu onSearch={handleSearch} />
+     {/* <Menu onSearch={handleSearch} /> */}
+     <Menu />
 
       
 
@@ -52,7 +53,7 @@ function AffichageSeries() {
       {/* Affichage des résultats de recherche */}
       {searchResults.length > 0 && (
         <section className="choices flex flex-wrap">
-          {searchResults.map((series) => (
+          {searchResults.map((series:any) => (
             <div key={series.id} className="choice flex-1 max-w-xs m-1">
               <img src={series.image} alt={series.title} className="w-full h-auto border rounded-t-md" />
               <h3 className="bg-black text-white text-center p-2 rounded-b-md">{series.title}</h3>

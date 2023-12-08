@@ -2,9 +2,10 @@
 import Menu from '../components/Menu';
 
 function AvisPage() {
+  
   return (
     <div className="bg-black text-white min-h-screen">
-     <Menu/>
+     {/* <Menu onSearch={props.handleSearch}/> */}
 
       <section className="flex flex-col items-center mt-8">
         <h2 className="text-2xl font-bold mb-4">Laissez votre avis</h2>
