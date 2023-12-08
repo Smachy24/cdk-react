@@ -16,6 +16,7 @@ import SuiviSerie from "./pages/suiviSerie";
 import AvisPage from "./pages/AvisPage";
 import VoirSerie from "./pages/VoirSerie";
 import Favoris from "./pages/Favoris";
+import Logout from "./pages/Logout";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
     path: "/voirSerie",
     element: <VoirSerie/>,
   },
+  {
+    path: "/logout",
+    element: <Logout/>,
+  }
 ]);
 
 const root = ReactDOM.createRoot(

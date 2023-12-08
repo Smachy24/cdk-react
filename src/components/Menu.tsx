@@ -36,7 +36,7 @@ function Menu  () {
           <li className="mr-5 cursor-pointer text-xl" ><a href="/">Accueil</a></li>
           <li className="mr-5 cursor-pointer text-xl"><a href="/affichageSeries">Séries</a></li>
           <li className="mr-5 cursor-pointer text-xl"><a href="/profile">Profil</a></li>
-          <li className="cursor-pointer text-xl"><a href="/">Déconnexion</a></li>
+          <li className="cursor-pointer text-xl"><a href="/logout">Déconnexion</a></li>
         </ul>
       </nav>
     </header>
