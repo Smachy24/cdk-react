@@ -24,7 +24,7 @@ function Profile() {
         </div>
 
         <div className="user-info text-center flex flex-col">
-          <h2 className="h2Profile text-3xl mb-3 text-red-500">Profile </h2>
+          <h2 className="h2Profile text-3xl mb-3 text-red-500">Profil </h2>
 
           <div className="flex justify-between gap-16">
             <div className="espace1 flex flex-col">
