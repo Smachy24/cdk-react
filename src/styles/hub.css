@@ -1,7 +1,6 @@
 .hub 
 {
-    background-color: rgb(196, 64, 64);
-} 
+    background-color: #202128;} 
 
 .hub-title
 {
@@ -21,5 +20,6 @@
 {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
