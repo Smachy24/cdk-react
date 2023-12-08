@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import '../styles/App.css';
 import series1 from "../assets/series1.jpg"
 import { doc, updateDoc } from "firebase/firestore";
+import Menu from "../components/Menu";
 
 function Profile() {
 
@@ -207,7 +208,7 @@ async function updateUserPassword(){
 
     
     <div className="bg-black min-h-screen text-white">
-
+      < Menu/>
         {alert && (
         <div className="fixed top-0 right-0 p-4 m-4 rounded text-red-800 bg-red-200 w-400">
           <i className="fa fa-times-circle"></i>
@@ -215,18 +216,7 @@ async function updateUserPassword(){
         </div>
       )}  
 
-    <header className="flex justify-between items-center bg-neutral-950 text-white p-5">
-
-     <div className="logo text-2xl font-bold text-red-800">Netflix</div>
-     <nav>
-       <ul className="flex">
-         <li className="mr-5 cursor-pointer text-xl">Accueil</li>
-         <li className="mr-5 cursor-pointer text-xl">Séries</li>
-         <li className="mr-5 cursor-pointer text-xl">Profil</li>
-         <li className="cursor-pointer text-xl">Déconnexion</li>
-       </ul>
-     </nav>
-     </header>
+    
 
      <section className="profile flex justify-center items-center flex-col mt-10">
        <div className="avatar mb-5">

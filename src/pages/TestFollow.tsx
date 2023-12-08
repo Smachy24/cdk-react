@@ -14,7 +14,7 @@ function TestFollow() {
 
   return (
     <div className="">
-      <FollowShowButton userId="KkYfPC09VuYATlU4jmCd" show={show}/>
+      <FollowShowButton userId="4b8HbuKwU9ak1CiNcKAh" show={show}/>
     </div>
   );
 }
