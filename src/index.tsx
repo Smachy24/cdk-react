@@ -9,6 +9,7 @@ import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
 import ShowsFollowed from "./pages/ShowsFollowed";
 import TestFollow from "./pages/TestFollow";
+import ContainerComments from "./components/ContainerComments";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/test-follow",
     element: <TestFollow />,
+  },
+  {
+    path: "/test-comments",
+    element: <ContainerComments showId={12345}/>
   }
 ]);
 
