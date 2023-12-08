@@ -6,16 +6,16 @@ import App from "./App";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
-import ShowsFollowed from "./pages/ShowsFollowed";
+import ShowsFollowed from "./components/ShowsFollowed";
 import TestFollow from "./pages/TestFollow";
 import AffichageSeries from "./pages/affichageSeries";
 import ContainerComments from "./components/ContainerComments";
-import Favoris from "./pages/Favoris";
 import Calendrier from "./pages/Calendrier";
 import Detail from "./pages/Detail";
 import SuiviSerie from "./pages/suiviSerie";
 import AvisPage from "./pages/AvisPage";
 import VoirSerie from "./pages/VoirSerie";
+import Favoris from "./pages/Favoris";
 
 
 const router = createBrowserRouter([
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
     element: <Connexion/>,
   },
   {
-    path: "/shows-followed",
-    element: <ShowsFollowed />,
+    path: "/favoris",
+    element: <Favoris />,
   },
   {
     path: "/test-follow",
@@ -51,10 +51,6 @@ const router = createBrowserRouter([
   {
     path: "/affichageSeries",
     element: <AffichageSeries/>,
-  },
-  {
-    path: "/favoris",
-    element: <Favoris/>,
   },
   {
     path: "/calendrier",

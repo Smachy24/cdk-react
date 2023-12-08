@@ -91,7 +91,7 @@ function Connexion() {
 
             <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={login}>Se connecter</button>
           </form>
-          <p className="signup-link mt-4 text-sm cursor-pointer">Nouveau sur Netflix ? S'inscrire maintenant.</p>
+          <p className="signup-link mt-4 text-sm cursor-pointer"><a href="/inscription">Nouveau sur Netflix ? S'inscrire maintenant.</a></p>
         </div>
       </div>
     </div>

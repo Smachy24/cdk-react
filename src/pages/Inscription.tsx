@@ -145,7 +145,7 @@ function Inscription() {
 
             <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
           </form>
-          <p className="signin-link mt-4 text-sm cursor-pointer">Avez-vous déjà un compte? Connecter vous ici </p>
+          <p className="signin-link mt-4 text-sm cursor-pointer"><a href="/connexion">Avez-vous déjà un compte? Connecter vous ici </a></p>
         </div>
       </div>
     </div>
