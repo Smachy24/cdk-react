@@ -3,12 +3,13 @@ import { FirebaseError } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signOut, updateEmail, updatePassword } from "@firebase/auth";
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { db } from "../utils/db";
-
+import bcrypt from 'bcryptjs';
 import User from "../models/user.model";
 import { useEffect, useState } from "react";
 
 import '../styles/App.css';
 import series1 from "../assets/series1.jpg"
+import { doc, updateDoc } from "firebase/firestore";
 
 function Profile() {
 
@@ -26,8 +27,10 @@ function Profile() {
   const auth = getAuth()
 
   const [userInfos, setUserInfos] = useState<User>(initialUserState);
+  const [userId, setUserId] = useState("");
   const [message, setMessage] = useState('');
   const [alert, setAlert] = useState(false)
+  const [password, setPassword] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -42,6 +45,7 @@ function Profile() {
         if (user.email) {
           const userInfo = await getUserInfos(user.email);
           setUserInfos(userInfo);
+          setPassword(userInfo.password);
           
         }
       }
@@ -67,7 +71,7 @@ function Profile() {
     const querySnapshot = await getDocs(q);
 
     const user = querySnapshot.docs[0].data() as User;
-    
+    setUserId(querySnapshot.docs[0].id);
     return user;
   }
 
@@ -78,11 +82,22 @@ function Profile() {
           await updateUserEmail();
         }
         
-        else{
+        if( password!== userInfos.password){
+          try{
+            updateUserPassword();
+            await updateInfosDatabase(true);
+          }
+          catch(err){
+            setMessage(`Une erreur est survenue ${err}`);
+            setAlert(true);
+          }
           
-          updateUserPassword()
+        } 
+        else{
+          await updateInfosDatabase(false);
         }
 
+        
       }
       
     }catch(err){
@@ -92,9 +107,37 @@ function Profile() {
    
 }
 
+async function updateInfosDatabase(changePassword: boolean){
+  const userDoc = doc(db, "Users", userId)
+  console.log(userInfos);
+  
+  let newUser;
+
+  if (changePassword) {
+   newUser = {
+    firstName: userInfos.firstName,
+    lastName: userInfos.lastName,
+    email: userInfos.email,
+    password: await bcrypt.hash(userInfos.password, 10),
+    language: userInfos.language || "",
+    dateOfBirth: userInfos.dateOfBirth
+   }
+  }
+  else{
+    newUser = {
+      firstName: userInfos.firstName,
+      lastName: userInfos.lastName,
+      email: userInfos.email,
+      language: userInfos.language || "",
+      dateOfBirth: userInfos.dateOfBirth
+  }
+  
+  await updateDoc(userDoc, newUser);
+  }
+}
 async function updateUserPassword(){
   try{
-    if(auth.currentUser){
+    if(auth.currentUser){      
       await updatePassword(auth.currentUser, userInfos.password)
       await signOut(auth);
       navigate("/")
@@ -136,6 +179,11 @@ async function updateUserPassword(){
   const handleFirebaseError = (err: FirebaseError) => {
     if(err.code === "auth/invalid-email"){
       setMessage("Adresse email invalide");
+      setAlert(true);
+    }
+
+    if(err.code === "auth/requires-recent-login"){
+      setMessage("Veuillez vous reconnecter");
       setAlert(true);
     }
 
@@ -216,13 +264,13 @@ async function updateUserPassword(){
           
              <div className="inputProfile mt-3">
                <label htmlFor="name">Date de naissance :</label>
-               <input className="inputInfos w-full px-4 py-2 rounded border mt-2 text-black" type="date" id="dateOfBirth" name="dateOfBirth" onChange={handleInputChange} />
+               <input className="inputInfos w-full px-4 py-2 rounded border mt-2 text-black" type="date" id="dateOfBirth" name="dateOfBirth"  onChange={handleInputChange} />
              </div>
       
 
              <div className="inputProfile mt-3">
                <label htmlFor="name">Langue:</label>
-               <input className="inputInfos w-full px-4 py-2 rounded border mt-2 text-black " type="text" id="language" name="language" onChange={handleInputChange} />
+               <input className="inputInfos w-full px-4 py-2 rounded border mt-2 text-black " type="text" id="language" name="language" value={userInfos.language} onChange={handleInputChange} />
              </div>
            </div>
          </div>
