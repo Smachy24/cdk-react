@@ -14,7 +14,7 @@ import Menus from "../components/Menus";
 function Series() {
   return (
     <div className="w-full">
-      <Menus />
+      <Menus />SeriesSections
       La page des séries
       <main className="flex justify-center items-center flex-wrap">
         {/* <ListSeries /> */}

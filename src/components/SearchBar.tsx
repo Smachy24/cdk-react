@@ -1,16 +1,16 @@
-import {  useState } from "react";
+import {  ChangeEvent, useState } from "react";
 
 
-function SearchBar({ onSearch }) {
+function SearchBar(props:{onSearch: (searchTerm: string) => void;}) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
   const handleSearch = () => {
     // Passer le terme de recherche au composant parent via la fonction de rappel onSearch
-    onSearch(searchTerm);
+    props.onSearch(searchTerm);
   };
 
   return (

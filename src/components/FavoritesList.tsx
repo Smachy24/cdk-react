@@ -1,5 +1,5 @@
 //import React, { useState } from 'react';
-import FavoriteCard from '../components/FavoriteCard';
+import FavoriteCard from './FavoriteCard';
 import series1 from '../assets/series1.jpg';
 import series2 from '../assets/series2.jpg';
 
