@@ -14,7 +14,7 @@ function App() {
     <Header />
      <WelcomeSection />
 
-    <section className="cards flex flex-wrap justify-around p-4 h-2/1 md:p-10">
+    <section className="cards flex flex-wrap justify-around p-4 h-2/1md:p-10">
       <SeriesCard image={series1} alt="Series 1" />
 
     </section> 
