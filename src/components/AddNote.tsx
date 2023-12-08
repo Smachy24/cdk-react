@@ -1,15 +1,28 @@
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, query, where, getDocs } from "@firebase/firestore";
 import { db } from "../utils/db";
+
 
 function AddNote(props: { userId: string, showId: number }) {
 
+  async function checkIfUserHasVoted() {
+    const table = collection(db, "Notes");
+    const q = query(table, where("userId", "==", props.userId), where("showId", "==", props.showId));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+}
+
+
   async function addNote(noteValue: number) {
-    const docRef = await addDoc(collection(db, "Notes"), {
-      userId: props.userId,
-      showId: props.showId,
-      note: noteValue,
-      date: new Date()
-    });
+    const userHasVoted = await checkIfUserHasVoted()
+    if(!userHasVoted){
+      const docRef = await addDoc(collection(db, "Notes"), {
+        userId: props.userId,
+        showId: props.showId,
+        note: noteValue,
+        date: new Date()
+      });
+    }
+   
   }
 
   return (
