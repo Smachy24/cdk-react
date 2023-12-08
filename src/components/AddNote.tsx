@@ -13,12 +13,12 @@ function AddNote(props: { userId: string, showId: number }) {
   }
 
   return (
-    <div className="add-note">
-      <button type="button" onClick={() => addNote(1)}>1</button>
-      <button type="button" onClick={() => addNote(2)}>2</button>
-      <button type="button" onClick={() => addNote(3)}>3</button>
-      <button type="button" onClick={() => addNote(4)}>4</button>
-      <button type="button" onClick={() => addNote(5)}>5</button>
+    <div className="add-note flex  gap-5">
+      <button type="button" className="bg-red-800 text-white border-none w-10 p-2 mt-2 cursor-pointer rounded-md text-sm text-center" onClick={() => addNote(1)}>1</button>
+      <button type="button"className="bg-red-800 text-white border-none w-10 p-2 mt-2 cursor-pointer rounded-md text-sm text-center" onClick={() => addNote(2)}>2</button>
+      <button type="button" className="bg-red-800 text-white border-none w-10 p-2 mt-2 cursor-pointer rounded-md text-sm text-center" onClick={() => addNote(3)}>3</button>
+      <button type="button" className="bg-red-800 text-white border-none w-10 p-2 mt-2 cursor-pointer rounded-md text-sm text-center" onClick={() => addNote(4)}>4</button>
+      <button type="button" className="bg-red-800 text-white border-none w-10 p-2 mt-2 cursor-pointer rounded-md text-sm text-center" onClick={() => addNote(5)}>5</button>
     </div>
   );
 }
