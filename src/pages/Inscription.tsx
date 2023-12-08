@@ -8,6 +8,7 @@ import { addDoc, collection } from "firebase/firestore";
 import User from '../models/user.model';
 import bcrypt from 'bcryptjs';
 import { useNavigate } from 'react-router-dom';
+import Menu from '../components/Menu';
 
 function Inscription() {
 
@@ -17,7 +18,8 @@ function Inscription() {
     email: "",
     password: "",
     dateOfBirth: new Date(),
-    createdAt: new Date()
+    createdAt: new Date(),
+    followedShows: []
   }
 
   const [user, setUser] = useState<User>(initialUserState);
@@ -43,12 +45,7 @@ function Inscription() {
   };
 
   const isFormValid = () => {
-    return (
-      user.firstName.trim() !== "" &&
-      user.lastName.trim() !== "" &&
-      user.email.trim() !== "" &&
-      user.password.trim() !== "" &&
-      user.dateOfBirth !== null
+    return (user.firstName.trim() !== "" &&user.lastName.trim() !== "" && user.email.trim() !== "" && user.password.trim() !== "" && user.dateOfBirth !== null
     );
   };
 
@@ -71,10 +68,13 @@ function Inscription() {
         password :hashedPassword,
         dateOfBirth: user.dateOfBirth,
         createdAt: user.createdAt,
+        followedShows: user.followedShows
       });
       setMessage("User registered successfully!");
+      setAlert(true);
       navigate('/');
     } catch (err: any) {
+
       if (err instanceof FirebaseError) {
         handleFirebaseError(err);
       }
@@ -105,7 +105,9 @@ function Inscription() {
   };
 
   return (
-    <div className="bg-gray-900 p-4">
+    <div className="bg-neutral-950  p-4">
+
+    <Menu/>
 
       {alert && (
         <div className="fixed top-0 right-0 p-4 m-4 rounded text-red-800 bg-red-200 w-400">
@@ -117,7 +119,7 @@ function Inscription() {
 
 
     
-    <div className="body font-sans m-0 p-0 bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div className="body font-sans m-0 p-0 bg-neutral-950 text-white flex items-center justify-center h-screen">
       
     
       
@@ -141,9 +143,9 @@ function Inscription() {
             <label htmlFor="password" className="text-sm mb-1">Mot de passe :</label>
             <input type="password" id="password" name="password" required className="p-2 mb-4 border text-black border-gray-700 rounded-md" value={user.password} onChange={handleInputChange}/>
 
-            <button type="submit" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
+            <button type="button" className="bg-red-500 text-white p-3 border-none rounded-md cursor-pointer" onClick={signUp}>S'inscrire</button>
           </form>
-          <p className="signin-link mt-4 text-sm">Avez-vous déjà un compte? Connecter vous ici </p>
+          <p className="signin-link mt-4 text-sm cursor-pointer"><a href="/connexion">Avez-vous déjà un compte? Connecter vous ici </a></p>
         </div>
       </div>
     </div>
