@@ -1,0 +1,25 @@
+.hub 
+{
+    background-color: rgb(196, 64, 64);
+} 
+
+.hub-title
+{
+    margin-top: 2rem;
+    background-color: aqua;
+}
+
+.hub-category-buttons
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: baseline;
+}
+
+.hub-shows
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+

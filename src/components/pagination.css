@@ -1,0 +1,25 @@
+.pagination
+{
+    background-color: aquamarine;
+    width: 40%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.pagination-page-list
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pagination-active
+{
+    background-color: pink;
+}
+

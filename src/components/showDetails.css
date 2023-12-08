@@ -1,0 +1,57 @@
+.show-details
+{
+    background-color: violet;
+    color: aliceblue;
+}
+
+.show-details-hero
+{
+    background-color: rgb(10, 3, 18);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-details-infos
+{
+    margin-left: 2rem;
+    margin-top: 15vh;
+    /* background-color: rgb(255, 0, 0); */
+    width: 60%;
+}
+
+.show-details-infos h1
+{
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.show-details-infos p
+{
+    width: 80%;
+}
+
+.show-details-poster
+{
+    background-color: green;
+    width: 40%;
+    /* height: 100vh; */
+}
+
+.show-details-poster img
+{
+    background-color: rgb(72, 234, 72);
+    width: 100%;
+    height: 100vh;
+}
+
+.show-details-companies
+{
+    margin-top: 4rem;
+}
+
+.show-details-seasons{
+    display: flex;
+    flex-direction: column;
+}

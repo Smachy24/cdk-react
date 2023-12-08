@@ -7,6 +7,9 @@ import Series from "./pages/Series";
 import Profile from "./pages/Profile";
 import Inscription from "./pages/Inscription";
 import Connexion from "./pages/Connexion";
+import Hub from './pages/hub';
+import ShowDetails from "./components/ShowDetails";
+import ShowCalendar from "./components/ShowCalendar";
 
 
 const router = createBrowserRouter([
@@ -29,6 +32,18 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion/>,
+  },
+  {
+    path: "/hub",
+    element: <Hub />,
+  },
+  {
+    path: "/hub/:show_id",
+    element: <ShowDetails/>,
+  },
+  {
+    path: "/calendar",
+    element: <ShowCalendar/>,
   },
 ]);
 

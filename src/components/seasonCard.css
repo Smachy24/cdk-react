@@ -1,0 +1,23 @@
+.season-card
+{
+    background-color: rgb(237, 94, 94);
+    width: 50%;
+    /* height: 10vh; */
+    border-radius: 10px;
+    margin: 1rem;
+
+    display: flex;
+    margin: 1rem;
+}
+
+.season-card-poster-container
+{
+    margin: 1rem;
+    background-color: rgb(19, 221, 56);
+    width: 10%;
+}
+
+.season-card-poster-container img
+{
+    border-radius: 1rem;
+}
