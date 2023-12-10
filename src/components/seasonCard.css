@@ -1,23 +1,35 @@
 .season-card
 {
-    background-color: rgb(237, 94, 94);
+    background-color: #1d1f24;
     width: 50%;
     /* height: 10vh; */
     border-radius: 10px;
     margin: 1rem;
 
     display: flex;
+    align-items: center;
     margin: 1rem;
+
+    transition: ease-in-out 0.2s;
 }
 
+.season-card:hover
+{
+    transform: translateX(2rem);
+}
 .season-card-poster-container
 {
     margin: 1rem;
-    background-color: rgb(19, 221, 56);
     width: 10%;
 }
 
 .season-card-poster-container img
 {
     border-radius: 1rem;
+}
+
+.season-card-cover-infos
+{
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin: 1rem;
 }

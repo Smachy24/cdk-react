@@ -5,6 +5,8 @@ import series3 from "../assets/series3.jpg";
 //import SearchBar from '../components/SearchBar'; 
 import Menu from '../components/Menu';
 import SeriesSections from '../components/SeriesSections';
+import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 function AffichageSeries() {
   const [searchResults, setSearchResults] = useState([]); // État pour stocker les résultats de la recherche
@@ -37,7 +39,8 @@ function AffichageSeries() {
   return (
     <div className="font-sans m-0 p-0 bg-black text-white">
      {/* <Menu onSearch={handleSearch} /> */}
-     <Menu />
+     <NavBar/>
+     <Link to={`/mockups`}><button>back</button></Link>
 
       
 

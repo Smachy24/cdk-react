@@ -2,11 +2,14 @@
 import series1 from '../assets/series1.jpg';
 //import series2 from '../assets/series2.jpg';
 import Menu from '../components/Menu';
+import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 function Calendrier() {
   return (
     <div className="bg-black  text-white min-h-screen">
-     <Menu/>
+      <NavBar/>
+      <Link to={`/mockups`}><button>back</button></Link>
 
       <section className="flex justify-center items-center h-full mt-5 mb-5">
         <ul className="flex flex-col gap-8">

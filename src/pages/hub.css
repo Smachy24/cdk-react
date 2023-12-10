@@ -1,7 +1,7 @@
 .hub 
 {
-    background-color: rgb(196, 64, 64);
-} 
+    background-color: #000000;
+}
 
 .hub-title
 {
@@ -15,11 +15,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: baseline;
+    margin-left: 4rem;
 }
 
 .hub-shows
 {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
-

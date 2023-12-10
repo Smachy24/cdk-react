@@ -1,0 +1,50 @@
+.mockups
+{
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+}
+
+.mockups h1
+{
+    font-weight: bold;
+    font-size: clamp(3rem, 3vw, 4rem);
+    margin-top: 3rem;
+    margin-left: 3vw;
+}
+
+.mockups-links
+{
+    text-decoration: none;
+    margin-top: 1.5rem;
+    margin-left: 3vw;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.mockups-links li
+{
+    padding: 1rem;
+    background-color: #1d1f24;
+    width: 20%;
+    border-radius: 40px;
+
+    transition: all ease-in-out 0.2s;
+}
+
+.mockups-links a
+{
+    padding: 1rem;
+    transition: ease-in-out 0.2s;
+}
+
+.mockups-links li:hover
+{
+    color: aliceblue;
+
+    background: -webkit-linear-gradient(45deg, rgb(255, 0, 0), rgb(76, 0, 255));
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: white;
+
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.144) ;
+
+    transform: translateX(2rem);
+}

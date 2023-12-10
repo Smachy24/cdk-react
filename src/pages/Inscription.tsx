@@ -9,6 +9,7 @@ import User from '../models/user.model';
 import bcrypt from 'bcryptjs';
 import { useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu';
+import NavBar from '../components/NavBar';
 
 function Inscription() {
 
@@ -107,7 +108,8 @@ function Inscription() {
   return (
     <div className="bg-neutral-950  p-4">
 
-    <Menu/>
+    
+    <NavBar/>
 
       {alert && (
         <div className="fixed top-0 right-0 p-4 m-4 rounded text-red-800 bg-red-200 w-400">

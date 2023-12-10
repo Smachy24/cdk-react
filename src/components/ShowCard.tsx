@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Show from '../models/show.model'
-import "../styles/showCard.css"
+import "./showCard.css"
 import { Link } from 'react-router-dom';
 
 
@@ -29,7 +29,6 @@ function Card(props : Show) {
           <h3>{props.note}</h3>
         </div>
       </div>
-
       </Link>
     </div>
   );
