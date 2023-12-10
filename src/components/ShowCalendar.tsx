@@ -9,22 +9,9 @@ import './showCalendar.css'
 import { Link } from 'react-router-dom';
 import NextEpisodeCard from './NextEpisodeCard';
 import OnAirShow from '../models/onAirShow.model';
-// import { v4 as uuidv4 } from 'uuid';
 
 function ShowCalendar() {
-    //     const [currentShow, setCurrentShow] = useState<DetailedShow>()
 
-
-    //     const getShowDetails = async () =>
-    //     {
-    //       const show = await getShowDetailsById(Number.parseInt(show_id ?? "42976")) as DetailedShow  // TODO GERER ERREUR DE ROUTE INCONNUE
-    //       setCurrentShow(show)
-    //     }
-
-    //     // On mount
-    //     useEffect(()=> {
-    //       getShowDetails()
-    //   }, [])
 
 
 
@@ -46,114 +33,23 @@ function ShowCalendar() {
 
 
     const [nextEpisodes, setNextEpisodes] = useState<NextEpisode[]>([])
-
     const [detailedShows, setDetailedShows] = useState<DetailedShow[]>([])
-
-    const days = ["Monday", "Tuesday", "Wednasday", "Thursday", "Friday", "Saturday", "Sunday"]
     const nextEpisodeRecovered:NextEpisode[] = []
     
-    // const getNextEpisodes =  (followedShowIds:number[]) => {
-    //     followedShowIds.forEach( async function (value){
-    //         //console.log("show id : " + value)
-
-    //         const show: DetailedShow = await getShowDetailsById(value);
-    //         setDetailedShows([...detailedShows, show])
-    //         //console.log("details show" +detailedShows)
-    //         if(show.next_episode_to_air != null)
-    //         {
-    //             const nextEpisode: NextEpisode = show.next_episode_to_air;
-    //             console.log("next episode found : " + nextEpisode.name)
-    //             const nextEpisodeDate = new Date(nextEpisode.air_date)
-    //             const nextEpisodeDay = nextEpisodeDate.getDay();
-    //             //console.log(days[nextEpisodeDay])
-    //             //console.log("nextEpisodes :" + nextEpisodes)
-    //             //console.log("nextEpisodesRecovered :" + nextEpisodeRecovered)
-
-    //             //console.log("date : " + nextEpisodeDate)
-
-    //             //if(!nextEpisodeRecovered.includes(nextEpisode))
-    //             //{
-    //                 nextEpisodeRecovered.push(nextEpisode)
-    //             //}
-
-    //             // if(nextEpisode.id == onAirShow.includes() )
-                
-                
-    //             // if (onAirShow.filter(e => e.id === nextEpisode.id).length > 0) {
-    //             //     /* vendors contains the element we're looking for */
-    //             //     nextEpisodeRecovered.push(nextEpisode)
-    //             // }
-
-              
-    //         }
-
-    //     });
-    // //    const temp = nextEpisodeRecovered.filter(({id},index) => !followedShow.includes(id,index+1))
-    // //     console.log("temporary" + temp)
-
-  
-
-    //     // const filtered: NextEpisode[] = []
-    //     // nextEpisodeRecovered.forEach( async function (episode){ 
-    //     //     console.log("filteredepisode id" + episode.id)
-    //     //     const rigolo = onAirShow.find(e => e.id === episode.id)
-    //     //     console.log("///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////", rigolo);
-            
-    //     //     //   if (onAirShow.find(e => e.id === episode.id)) {
-    //     //     //         console.log(e)
-    //     //     //         /* vendors contains the element we're looking for */
-    //     //     //         nextEpisodeRecovered.push(episode)
-    //     //     //     }
-    //     //   });
-    //     // console.log("filtered" + filtered)
-
-
-    // //     let filtered: any = []
-    // //     // filtered = nextEpisodeRecovered.filter(({id}) => onAirShow[] id)
-    // //   const arrayO =  nextEpisodeRecovered.map((episode) => {
-           
-    // //         // console.log(episode.show_id);
-    // //         // console.log('===========');
-            
-    // //          filtered = onAirShow.filter(({id}) => id === episode.show_id)
-    // //     });
-    // //     console.log(arrayO);
-        
-        
-
-
-    //     nextEpisodeRecovered.sort(function(a,b){
-    //         // Turn your strings into dates, and then subtract them
-    //         // to get a value that is either negative, positive, or zero.
-         
-            
-    //         return Number(new Date(b.air_date)) - Number(new Date(a.air_date));
-    //       });
-    //    // nextEpisodeRecovered = nextEpisodeRecovered.sort()
-    //     setNextEpisodes(nextEpisodeRecovered)
-    // }
-
 
     const getNextEpisodes = async () => {
         // get all next episodes from followed shows
         followedShow.forEach( async function (value){
-            //console.log("show id : " + value)
 
             const show: DetailedShow = await getShowDetailsById(value);
             setDetailedShows([...detailedShows, show])
-            //console.log("details show" +detailedShows)
             if(show.next_episode_to_air != null)
             {
                 const nextEpisode: NextEpisode = show.next_episode_to_air;
-
                 nextEpisodeRecovered.push(nextEpisode)
-                
-        }});
+            }
+        });
   
-
-      
-        
-
         // Assign final results
         setNextEpisodes(nextEpisodeRecovered)
     }
@@ -161,61 +57,32 @@ function ShowCalendar() {
             // filtering result only for this week episodes
             const filterEpisodes =  () => {
                 let result
-
                 onAirShow.map((show) => {
                      result = nextEpisodeRecovered.filter(({show_id}) => show_id === show.id)
-
                 });
                 return result
             }
 
+    // On-mount component effect
     useEffect(()=> {
-        console.log("-----------------------------useEffect")
         getNextEpisodes()
         getOnAirShows()
     }, [])
 
+    // On-mount component effect
     useEffect(() => {
-        console.log('ghvjhkbnkbnlbnl');
-        
         filterEpisodes()
     }, [nextEpisodes])
 
-
-    // uuid not working
-    function getRandomInt(max: number) {
-        return Math.floor(Math.random() * max);
-    }
-   
-
     return (
     <div className="show-calendar">
-        <h1>CALENDAR</h1>
+        <h1>Episode to come !</h1>
 
-        {/* if the description is empty, use placeholder text */}
-        {/* {nextEpisodes.length == 0 ? 
-                    <p>Aucun épisode pour cette semaine...</p>
-                    : {{nextEpisodes.map((next) => <h1> {next.air_date.toDateString()} </h1> )}}
-
-        } */}
-
-        {/* <h2>{nextEpisodes.length}</h2>
-        <h2>{nextEpisodeRecovered.length}</h2>
-
-        <h2>{detailedShows.length}</h2>
-
-        <ul>
-            {nextEpisodes.map((next) => <li key={getRandomInt(555555)}> {next.name} {new Date(next.air_date).getDate()}  {new Date(next.air_date).getMonth()} {new Date(next.air_date).getFullYear()}</li> )}
-        </ul>
-        <ul>
-            {nextEpisodeRecovered.map((next) => <li key={getRandomInt(555555)}> {next.name} </li> )}
-        </ul> */}
 
         <div>
             {nextEpisodes.map((nextEpisode) => <NextEpisodeCard id={nextEpisode.id} show_id={nextEpisode.show_id} name={nextEpisode.name} season_number={nextEpisode.season_number} air_date={nextEpisode.air_date}/> )}
         </div>
 
-        {/* {nextEpisodes.map((next) => <h1> {new Date(next.air_date).getDay()} </h1> )} */}
 
 
     </div>

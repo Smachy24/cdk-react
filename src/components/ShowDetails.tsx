@@ -14,6 +14,7 @@ import { onAuthStateChanged } from '@firebase/auth';
 import User from '../models/user.model';
 import { collection, getDocs, query, where } from '@firebase/firestore';
 import { auth, db } from '../utils/db';
+import NavBar from './NavBar';
 
 
 function ShowDetails() {
@@ -66,6 +67,7 @@ function ShowDetails() {
 
   return (
     <div className="show-details">
+      <NavBar/>
         {
           currentShow ?
           <div>

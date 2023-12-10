@@ -1,11 +1,14 @@
 import React from 'react';
 import series1 from '../assets/series1.jpg';
 import Menu from '../components/Menu';
+import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 function Detail() {
   return (
     <div className="bg-black text-white min-h-screen">
-      <Menu/>
+      <NavBar/>
+      <Link to={`/mockups`}><button>back</button></Link>
      
       
     <button className=" bg-white mt-2 text-black px-4 py-2 rounded-md">Suivre</button>

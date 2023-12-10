@@ -29,7 +29,6 @@ function Card(props : Show) {
           <h3>{props.note}</h3>
         </div>
       </div>
-
       </Link>
     </div>
   );

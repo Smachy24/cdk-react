@@ -23,13 +23,13 @@ function NextEpisodeCard(props : NextEpisode) {
         <div className="next-episode-card-poster-container">
             {/* by default if poster link is null, link to ad adstra poster */}
             {/* {props.poster_path == null ? <img src={`https://image.tmdb.org/t/p/original/wigZBAmNrIhxp2FNGOROUAeHvdh.jpg`}/> : <img src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}/> } */}
+            <p>SOON !</p>
         </div>
         <div className='next-episode-card-cover'>
             <div className='next-episode-card-cover-infos'>
-            <h2>episode name {props.name}</h2>
-            <h3>show id : {props.show_id}</h3>
-            {/* lundi is 1, mardi 2...*/}
-            <h3>date : {fullyear} - {months[month]} - {days[day-1]} {dayNumber}</h3>
+            <h2>{props.name}</h2>
+            {/* <h3>show id : {props.show_id}</h3> */}
+            <h3> Release : {days[day-1]} {dayNumber} {months[month]} {fullyear}</h3>
             </div>
         </div>
 

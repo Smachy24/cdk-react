@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import "../styles/hub.css"
+import "./hub.css"
 import ShowCard from '../components/ShowCard';
 import Show from '../models/show.model'
 import SearchBar  from '../components/SearchBar';
 import Pagination from '../components/Pagination';
 import CategoryButton from '../components/CategoryButton';
 import {getShows} from '../utils/request';
+import NavBar from '../components/NavBar';
 
 
 function Hub() {
@@ -116,7 +117,7 @@ function Hub() {
 
     return (
         <div className="hub">
-            <h1 className="hub-title">hello Hub</h1>
+            <NavBar/>
 
             <SearchBar handleSearchSubmit = {handleSearchSubmit} handleSearchChange={handleSearchChange}/>
             <div className='hub-category-buttons'>

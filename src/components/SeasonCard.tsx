@@ -17,7 +17,7 @@ function SeasonCard(props : Season) {
         <div className='season-card-cover-infos'>
           <h2>{props.name}</h2>
           
-          <h3>{props.episode_count}</h3>
+          <h3>{props.episode_count} Episodes</h3>
         </div>
       </div>
 

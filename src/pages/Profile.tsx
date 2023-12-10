@@ -11,6 +11,7 @@ import '../styles/App.css';
 import series1 from "../assets/series1.jpg"
 import { doc, updateDoc } from "firebase/firestore";
 import Menu from "../components/Menu";
+import NavBar from "../components/NavBar";
 
 function Profile() {
 
@@ -208,7 +209,7 @@ async function updateUserPassword(){
 
     
     <div className="bg-black min-h-screen text-white">
-      < Menu/>
+      <NavBar/>
         {alert && (
         <div className="fixed top-0 right-0 p-4 m-4 rounded text-red-800 bg-red-200 w-400">
           <i className="fa fa-times-circle"></i>
