@@ -1,0 +1,7 @@
+.show-calendar
+{
+    background-color: rgb(0, 0, 0);
+    overflow-y: hidden;
+    padding-bottom: 2rem;
+    padding-left: 2vw;
+}
